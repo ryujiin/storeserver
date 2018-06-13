@@ -30,10 +30,10 @@ class Producto(models.Model):
 	etiquetas = models.ManyToManyField('Etiqueta',blank=True,related_name='etiquetas')
 
 	def __unicode__(self):
-		return "%s - %s" %(self.nombre,self.nombre)
+		return "%s - %s" %(self.nombre,self.texto_variacion)
 
 	def save(self, *args, **kwargs):
-		self.full_name = "%s (%s)" %(self.nombre,self.nombre)
+		self.full_name = "%s (%s)" %(self.nombre,self.texto_variacion)
 		if not self.slug:
 			self.slug = slugify(self.full_name)
 		if not self.sku:
