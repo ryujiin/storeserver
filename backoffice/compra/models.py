@@ -37,7 +37,7 @@ class Compra(models.Model):
 			cantidad = self.cantidad * self.insumo.ratio
 		else:
 			cantidad = self.cantidad
-		inventario = Inventario.objects.create(insumo=self.insumo,aumento=cantidad,fecha=self.fecha)
+		inventario = Inventario.objects.create(insumo=self.insumo,cantidad=cantidad,fecha=self.fecha)
 		return inventario
 
 	def get_total(self):
