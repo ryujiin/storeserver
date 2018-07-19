@@ -22,7 +22,7 @@ class Inventario(models.Model):
 		if self.insumo:
 			tipo = 'Insumo'
 			nombre = self.insumo
-		return "%s - %s ( %s )" %(tipo,nombre)
+		return "%s - %s" %(tipo,nombre)
 
 	def save(self, *args, **kwargs):
 		super(Inventario, self).save(*args, **kwargs)
