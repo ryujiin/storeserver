@@ -260,6 +260,8 @@ UNIDADES = (
     ('pq','Paquete'),
     ('m','Metros'),
     ('cm','Centimetros'),
+    ('gl','Galon'),
+    ('l','Litro'),
 )
 
 try:
