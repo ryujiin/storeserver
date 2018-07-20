@@ -38,6 +38,9 @@ from pago.views import *
 from custom.views import *
 from pedido.views import PedidoViewSet,MetodoEnvioViewSet,MetodoPagoViewSet
 
+#Backoffice
+from backoffice.compra.views import CompraApiViews
+
 from utiles.views import ColorViewsets,TallasViewsets
 
 router = DefaultRouter()
@@ -71,6 +74,7 @@ router.register(r'cms/hero_home',HeroHomeViewsets,'Hero Home')
 
 adminrouter = DefaultRouter()
 adminrouter.register(r'producto',ProductosOficinaViewsets,'productos Admin')
+adminrouter.register(r'conta/compra',CompraApiViews,'productos Admin')
 adminrouter.register(r'imagen_producto',ProductoImageAdmin,'productos Imagen')
 adminrouter.register(r'variacion_producto',ProductoVariacionAdmin,'productos Variacion')
 adminrouter.register(r'caracteristica_producto',ProductoCaracteristica,'productos Caracteristica')
