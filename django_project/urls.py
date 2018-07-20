@@ -40,6 +40,7 @@ from pedido.views import PedidoViewSet,MetodoEnvioViewSet,MetodoPagoViewSet
 
 #Backoffice
 from backoffice.compra.views import CompraApiViews
+from backoffice.ofcatalogo.views import InsumoLista
 
 from utiles.views import ColorViewsets,TallasViewsets
 
@@ -73,11 +74,8 @@ router.register(r'tallas',TallasViewsets,'tallas')
 router.register(r'cms/hero_home',HeroHomeViewsets,'Hero Home')
 
 adminrouter = DefaultRouter()
-adminrouter.register(r'producto',ProductosOficinaViewsets,'productos Admin')
 adminrouter.register(r'conta/compra',CompraApiViews,'productos Admin')
-adminrouter.register(r'imagen_producto',ProductoImageAdmin,'productos Imagen')
-adminrouter.register(r'variacion_producto',ProductoVariacionAdmin,'productos Variacion')
-adminrouter.register(r'caracteristica_producto',ProductoCaracteristica,'productos Caracteristica')
+adminrouter.register(r'catalogo/insumo',InsumoLista,'Insumos Admin')
 
 sitemaps ={
     'categoria': CategoriaSitemap,
