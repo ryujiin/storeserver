@@ -36,7 +36,7 @@ class MetodoEnvioViewSet(viewsets.ReadOnlyModelViewSet):
 	def get_queryset(self):	
 		pais = self.request.query_params.get('pais',None)
 		
-		queryset = MetodoEnvio.objects.filter(nombre=pais)
+		queryset = MetodoEnvio.objects.filter(grupo_metodo__nombre=pais)
 		return queryset
 		#if self.request.user.is_authenticated():
 			#try:
