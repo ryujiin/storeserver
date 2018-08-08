@@ -16,5 +16,14 @@ class CompraApiViews(viewsets.ModelViewSet):
 	permission_classes = (IsAdminUser,)
 
 	def get_queryset(self):
+		insumo = self.request.query_params.get('insumo', None)
+		dateInit = self.request.query_params.get('dateInit', None)
+		dateEnd = self.request.query_params.get('dateEnd', None)
+
 		queryset = Compra.objects.all().order_by('-fecha')
+
+		if insumo:
+			queryset = queryset.filter(insumo=insumo)[:1]
+		if dateInit and dateEnd:
+			queryset = queryset.filter(fecha__range=[dateInit, dateEnd])
 		return queryset

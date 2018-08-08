@@ -25,3 +25,7 @@ class InsumoLista(viewsets.ModelViewSet):
 	def get_queryset(self):
 		queryset = Insumo.objects.all()
 		return queryset
+
+class TipoInsumoLista(viewsets.ModelViewSet):
+	serializer_class = TipoInsumoSerializer
+	queryset = TipoInsumo.objects.all()

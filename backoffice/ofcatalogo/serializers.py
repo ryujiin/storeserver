@@ -20,3 +20,8 @@ class InsumoSerializer(serializers.ModelSerializer):
 			for s in stock:
 				stock_num = stock_num + s.cantidad
 		return stock_num
+
+class TipoInsumoSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = TipoInsumo
+		fields = ('__all__')

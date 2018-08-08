@@ -34,19 +34,23 @@ class MetodoEnvioViewSet(viewsets.ReadOnlyModelViewSet):
 	serializer_class = MetodoEnvioSerializer
 
 	def get_queryset(self):	
-		if self.request.user.is_authenticated():
-			try:
-				total = Carro.objects.get(propietario=self.request.user,estado="Abierto")
-			except Carro.DoesNotExist:
-				raise Http404
-			if int(total.total_carro())<50:
-				#si es menor q 50
-				queryset = MetodoEnvio.objects.filter(grupo_metodo__nombre='Menores a 50')
-			else:
-				queryset = MetodoEnvio.objects.filter(grupo_metodo__nombre='Mayores a 50')
-		else:
-			queryset = MetodoEnvio.objects.filter(grupo=1)
-		return queryset.order_by('precio')
+		pais = self.request.query_params.get('pais',None)
+		
+		queryset = MetodoEnvio.objects.filter(nombre=pais)
+		return queryset
+		#if self.request.user.is_authenticated():
+			#try:
+				#total = Carro.objects.get(propietario=self.request.user,estado="Abierto")
+			#except Carro.DoesNotExist:
+				#raise Http404
+			#if int(total.total_carro())<50:
+				##si es menor q 50
+				#queryset = MetodoEnvio.objects.filter(grupo_metodo__nombre='Menores a 50')
+			#else:
+				#queryset = MetodoEnvio.objects.filter(grupo_metodo__nombre='Mayores a 50')
+		#else:
+			#queryset = MetodoEnvio.objects.filter(grupo=1)
+		#return queryset.order_by('precio')
 
 class MetodoPagoViewSet(viewsets.ReadOnlyModelViewSet):
 	serializer_class = MetodoPagoSerializer
