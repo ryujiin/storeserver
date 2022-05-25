@@ -23,7 +23,7 @@ netifaces==0.10.7
 olefile==0.44
 Pillow==4.3.0
 psycopg2==2.7.3.1
-PyJWT==1.5.3
+PyJWT==2.4.0
 python-dateutil==2.6.1
 python-http-client==3.0.0
 pytz==2017.2
